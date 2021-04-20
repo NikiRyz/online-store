@@ -11,7 +11,6 @@ const Auth = observer(() => {
   const location = useLocation();
   //проверяем находимся ли мы на странице авторизации
   const isLogin = location.pathname === "/login";
-
   return (
     <Container
       className="d-flex justify-content-center align-items-center"
@@ -29,7 +28,7 @@ const Auth = observer(() => {
           <Row className="d-flex justify-content-between mt-3 pl-3 pr-3">
             {isLogin ? (
               <div>
-                Нет аккаунта?{" "}
+                Нет аккаунта?
                 <NavLink to="/registration">Зарегистрируйся!</NavLink>
               </div>
             ) : (
