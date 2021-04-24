@@ -5,6 +5,8 @@ export default class DeviceStore {
     this._types = [
       { id: 1, name: "Холодильники" },
       { id: 2, name: "Смартфоны" },
+      { id: 3, name: "Ноутбуки" },
+      { id: 4, name: "Телевизоры" },
     ];
     this._brands = [
       { id: 1, name: "Samsung" },
@@ -46,10 +48,11 @@ export default class DeviceStore {
         rating: 5,
         img: "https://clck.ru/UMM7f",
       },
-    ];
+    ]; 
+    this._selectedType = {}
+    this._selectedBrand = {}
     makeAutoObservable(this);
   }
-
   setTypes(types) {
     this._types = types;
   }
@@ -59,7 +62,19 @@ export default class DeviceStore {
   setDevices(devices) {
     this._devices = devices;
   }
-
+  setSelectedType(type) {
+  
+    this._selectedType = type
+}
+  setSelectedBrand(brand) {
+    this._selectedBrand = brand
+}
+get selectedType() {
+  return this._selectedType
+}
+get selectedBrand() {
+    return this._selectedBrand
+}
   get types() {
     return this._types;
   }
