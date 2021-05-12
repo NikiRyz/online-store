@@ -25,13 +25,13 @@ const NavBar = observer(() => {
         </NavLink>
         {user.isAuth ? (
           <Nav className="ml-auto" style={{ color: "white" }}>
-            <Button variant={"outline-light"} className="ml-2">
+            <Button variant={"outline-light"} className="ml-2" onClick={()=>logOut()}>
               Выйти
             </Button>
           </Nav>
         ) : (
           <NavLink className="ml-auto" style={{ color: "white" }} to='/login'>
-            <Button variant={"outline-light"} >Авторизация</Button>
+            <Button variant={"outline-light"} onClick={()=>history.push('/login')}>Авторизация</Button>
           </NavLink>
         )}
       </Container>
