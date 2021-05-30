@@ -19,7 +19,7 @@ const DeviceItem = ({ device }) => {
           <div>Samsung</div>
           <div className="d-flex align-items-center">
             <div>{device.rating}</div>
-            <Image width={18} height={18} src={star} />
+            <Image width={18} height={18} src={'http://localhost:5000/'+device.img} />
           </div>
         </div>
         <div>{device.name}</div>

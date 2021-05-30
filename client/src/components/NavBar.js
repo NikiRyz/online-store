@@ -6,9 +6,15 @@ import { NavLink } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { observer } from "mobx-react-lite";
 import Container from "react-bootstrap/Container";
-//observer для того, чтобы все изменения отслеживались
+import { useHistory } from "react-router-dom";
+
 const NavBar = observer(() => {
   const { user } = useContext(Context);
+  const history = useHistory();
+  const logOut = () => {
+    user.setUser({});
+    user.setIsAuth(false);
+  };
   return (
     <Navbar bg="dark" variant="dark">
       <Container>
@@ -17,13 +23,22 @@ const NavBar = observer(() => {
         </NavLink>
         {user.isAuth ? (
           <Nav className="ml-auto" style={{ color: "white" }}>
-            <Button variant={"outline-light"} className="ml-2">
+            <Button
+              variant={"outline-light"}
+              className="ml-2"
+              onClick={() => logOut()}
+            >
               Выйти
             </Button>
           </Nav>
         ) : (
-          <NavLink className="ml-auto" style={{ color: "white" }} to='/login'>
-            <Button variant={"outline-light"} >Авторизация</Button>
+          <NavLink className="ml-auto" style={{ color: "white" }} to="/login">
+            <Button
+              variant={"outline-light"}
+              onClick={() => history.push("/login")}
+            >
+              Авторизация
+            </Button>
           </NavLink>
         )}
       </Container>
