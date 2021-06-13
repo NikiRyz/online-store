@@ -26,7 +26,7 @@ const Shop = observer(() => {
     <Container>
       <Row className="mt-2">
         <Col md={3}>
-          <TypeBar />
+          <TypeBar/>
         </Col>
         <Col md={9}>
           <BrandBar />
